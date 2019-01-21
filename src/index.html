@@ -15,11 +15,20 @@
 <script type="text/javascript" src="//dxa05szpct2ws.cloudfront.net/player3/TreepodiaPlayer.js"></script>
   
 <script type="text/javascript">
-  function initTreepodia(player) {
-    player.show({
+  function getSKUWithDefault(defaultValue) {
+    if (window.location.search != "") {
+      return window.location.search.replace("?", "");
+    }
+
+    return defaultValue;
+  }
+
+  const sku = getSKUWithDefault("ken-floressa");
+
+  const playerParams = {
       //Required Parameters
       account: "UA-GLASSESETC",
-      sku: "ken-v402",
+      sku: sku,
       width: 1280,
       height: 720,
       container: "treepodiaPlayerMain",
@@ -29,7 +38,10 @@
       showPoster: true,
       showJumboPlay: true,
       autoplay: false
-    });
+    };
+
+  function initTreepodia(player) {
+    player.show(playerParams);
   } 
   </script>
 </head>
