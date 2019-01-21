@@ -8,10 +8,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Treepodia HTML5 Player 3.0 Script -->
+<script type="text/javascript" src="//dxa05szpct2ws.cloudfront.net/player3/TreepodiaPlayer.js"></script>
+  
+<script type="text/javascript">
+  function initTreepodia(player) {
+    player.show({
+      //Required Parameters
+      account: "UA-GLASSESETC",
+      sku: "ken-v402",
+      width: 1280,
+      height: 720,
+      container: "treepodiaPlayerMain",
+      //Optional Parameters
+      showTime: false,
+      popup: false,
+      showPoster: true,
+      showJumboPlay: true,
+      autoplay: false
+    });
+  } 
+  </script>
 </head>
 <body>
   <app-root></app-root>
