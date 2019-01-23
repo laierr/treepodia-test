@@ -1,32 +1,40 @@
-<form class="contact-form">
+<form class="contact-form" name="form" [formGroup]="form">
   <mat-list>
     <mat-list-item>
       <mat-form-field>
-          <input matInput placeholder="First Name" required>
+          <input matInput formControlName="firstName" placeholder="First Name" pattern="[A-Za-z \-]*" required >
       </mat-form-field>
     </mat-list-item>
     <mat-list-item>
       <mat-form-field>
-        <input matInput placeholder="Last Name" required>
+        <input matInput formControlName="lastName" placeholder="Last Name" pattern="[A-Za-z \-]*" required >
       </mat-form-field>
     </mat-list-item>
     <mat-list-item>
       <mat-form-field class="contact-form-half-width">
-        <input matInput placeholder="Email" required>
+        <input matInput formControlName="email" type="email" placeholder="Email"  required email>
       </mat-form-field>
     </mat-list-item>
     <mat-list-item>
       <mat-form-field class="contact-form-half-width">
-        <input matInput placeholder="Phone number" required>
+        <input matInput formControlName="phone" placeholder="Phone number"  minlength="5" pattern="[0-9 +\-\(\)\*]*" required > 
       </mat-form-field>
     </mat-list-item>
     <mat-list-item>
-      <mat-form-field class="contact-form-half-width">
-        <textarea matInput placeholder="Comments"></textarea>
+      <mat-form-field class="contact-form-half-width text-area">
+        <textarea matInput formControlName="comment" placeholder="Comment" maxlength="5000"></textarea>
       </mat-form-field>
     </mat-list-item>
     <mat-list-item>
-      <button mat-raised-button>Send inquiry</button>
+      <button mat-raised-button type="submit" (click)="onSubmit()">Send inquiry</button>
     </mat-list-item>
   </mat-list>
 </form>
+
+<div class="submitted" *ngIf="formIsValid">
+  <div><h2>Got a message:</h2></div>
+  <div><span>Name: </span>{{form.value.firstName}} {{form.value.lastName}}</div>
+  <div><span>Email: </span> {{form.value.email}}</div>
+  <div><span>Phone: </span> {{form.value.phone}}</div>
+  <div><span>Message: </span> {{form.value.comment}}</div>
+</div>

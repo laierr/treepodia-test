@@ -1,7 +1,11 @@
 .contact-form {
-  padding: 30px;
+  padding: 40px;
 }
 
 .contact-form-half-width {
   width: 50%;
+}
+
+.text-area{
+  margin-top: 12px;
 }
